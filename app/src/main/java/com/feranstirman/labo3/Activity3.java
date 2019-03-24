@@ -15,7 +15,7 @@ public class Activity3 extends AppCompatActivity {
         tvShare = findViewById(R.id.tv_share);
         Intent mIntent = this.getIntent();
         if(mIntent!=null){
-            tvShare.setText("se ha llegado a la tercera actividad exitosamente");
+            tvShare.setText(mIntent.getStringExtra(Intent.EXTRA_TEXT));
         }
     }
 }

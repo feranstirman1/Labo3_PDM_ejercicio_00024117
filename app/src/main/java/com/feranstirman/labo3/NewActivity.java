@@ -40,10 +40,18 @@ public class NewActivity extends AppCompatActivity {
 
         btnShare = findViewById(R.id.btn_share);
         btnShare.setOnClickListener(v->{
+
+            String datos;
+            datos = "{username: " + mIntent.getStringExtra(AppConstant.USERNAME_KEY);
+            datos = datos + " password: " + mIntent.getStringExtra(AppConstant.PASSWORD_KEY);
+            datos = datos + " email: " + mIntent.getStringExtra(AppConstant.EMAIL_KEY);
+            datos =datos + "gender: " + mIntent.getStringExtra(AppConstant.GENDER_KEY);
+            datos = datos + "}";
+
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT,"");
+            shareIntent.putExtra(Intent.EXTRA_TEXT,datos);
             startActivity(shareIntent);
         });
     }
